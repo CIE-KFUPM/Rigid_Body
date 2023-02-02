@@ -26,7 +26,7 @@ def set_context(a_context):
 
 
 def two_d_trajectory_attitude_plot(trajectory: np.ndarray, scale: float = 1., skip=1,
-                                   color: str = 'red',
+                                   color: str = 'black',
                                    initial_color: str = None) -> plt.Axes:
     """
 
