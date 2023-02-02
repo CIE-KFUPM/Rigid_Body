@@ -25,11 +25,14 @@ def set_context(a_context):
     sns.set_context(a_context)
 
 
-def two_d_trajectory_attitude_plot(trajectory: np.ndarray, scale: float = 1., skip=1, color='red') -> plt.Axes:
+def two_d_trajectory_attitude_plot(trajectory: np.ndarray, scale: float = 1., skip=1,
+                                   color: str = 'red',
+                                   initial_color: str = None) -> plt.Axes:
     """
 
     Parameters
     ----------
+    initial_color
     color: string
     trajectory: np.ndarray (Nt, 3)
     scale : float (>0)
@@ -56,6 +59,12 @@ def two_d_trajectory_attitude_plot(trajectory: np.ndarray, scale: float = 1., sk
         x = trajectory[i * skip]
         _H = rb.homogeneous_transformation_2d(rb.rotation_matrix_2d(x[-1]), d=x[:2])
         _P = _P0 @ _H.T  # _H.T  # apply homogeneous transformation
+        if i == 0:
+            if initial_color:
+                poly = Polygon(_P[:, :2], fill=False, edgecolor=initial_color)
+                ax.add_patch(poly)
+                continue
+
         poly = Polygon(_P[:, :2], fill=False, edgecolor=color)
         ax.add_patch(poly)
 
