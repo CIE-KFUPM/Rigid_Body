@@ -1,6 +1,6 @@
 # Rigid Body
 A simple python package contains basic rigid body formalism, like rotations, homogeneous transformations, 
-kinematics as well as some plotting functionalities.
+kinematics as well as some plotting and ode solver functionalities.
 
 Examples:
 
