@@ -61,11 +61,11 @@ def two_d_trajectory_attitude_plot(trajectory: np.ndarray, scale: float = 1., sk
         _P = _P0 @ _H.T  # _H.T  # apply homogeneous transformation
         if i == 0:
             if initial_color:
-                poly = Polygon(_P[:, :2], fill=False, edgecolor=initial_color)
+                poly = Polygon(_P[:, :2], fill=True, color=initial_color, edgecolor=initial_color)
                 ax.add_patch(poly)
                 continue
 
-        poly = Polygon(_P[:, :2], fill=False, edgecolor=color)
+        poly = Polygon(_P[:, :2], fill=True, color=color, edgecolor=color)
         ax.add_patch(poly)
 
     return ax
