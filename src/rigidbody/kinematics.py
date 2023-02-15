@@ -65,19 +65,19 @@ def analytical_jacobian_3d(angles: np.ndarray) -> np.ndarray:
                      [o_3_3, j_omega(angles)]])
 
 
-def inverse_analytical_jacobian_2d(theta: float) -> np.ndarray:
+def inverse_analytical_jacobian_2d(psi: float) -> np.ndarray:
     """
 
     Calculate inverse of a two-dimensional Jacobian.
 
     Parameters
     ----------
-    theta : float
+    psi : float
 
     Returns
     -------
     Jacobian: np.ndarray (3,3)
     """
-    return np.array([[np.cos(theta), -np.sin(theta), 0],
-                     [np.sin(theta), np.cos(theta), 0],
+    return np.array([[np.cos(psi), -np.sin(psi), 0],
+                     [np.sin(psi), np.cos(psi), 0],
                      [0, 0, 1.]])
