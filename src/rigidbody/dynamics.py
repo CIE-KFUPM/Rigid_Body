@@ -51,7 +51,7 @@ def mass_matrix_two_d(rb: RigidBody):
     Iz = rb.inertia[0]
     return np.array([[m, 0, -m * ry],
                      [0, m, m * rx],
-                     [m * ry, -m * rx, Iz]])
+                     [-m * ry, m * rx, Iz]])
 
 
 def rigid_body_dynamics_two_d(state: np.ndarray, force_torque: np.ndarray, rb: RigidBody):
